@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RTA Voice Assistants | Aistra</title>
+  <meta name="description" content="Live voice demos of RTA's Nol Card Assistant and Journey Planner, built by Aistra.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#6E5BFF">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>
+    // Reveal targets start hidden only when motion is allowed. site.js shows them;
+    // the timeout is a failsafe in case the animation library doesn't load.
+    (function () {
+      var d = document.documentElement;
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        d.classList.add('motion');
+        setTimeout(function () { d.classList.add('motion-done'); }, 3000);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#assistants">Skip to the assistants</a>
+
+  <header class="nav" data-nav>
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="https://www.aistra.com" target="_blank" rel="noopener">
+        <img src="assets/img/aistra-logo.png" alt="Aistra, Better with AI" width="1044" height="389">
+      </a>
+      <div class="nav__meta">
+        <span class="live-pill" data-live-pill>
+          <span class="live-pill__dot" aria-hidden="true"></span>
+          <span data-live-text>Live demo</span>
+        </span>
+        <span class="nav__conf">Confidential</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero: mirrors the Aistra cover slide -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-hero-item>RTA <span aria-hidden="true">&times;</span> Aistra</p>
+          <h1 class="hero__title" data-split>Talk to RTA&rsquo;s AI voice assistants</h1>
+          <p class="hero__lead" data-hero-item>
+            Two live demos built by Aistra for Dubai&rsquo;s Roads and Transport Authority.
+            Pick an assistant, press <strong>Start call</strong> and speak, right here in your browser.
+          </p>
+          <div class="hero__actions" data-hero-item>
+            <a class="btn btn--primary" href="#assistants" data-magnet>
+              Start testing
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#how">How it works</a>
+          </div>
+          <p class="byline" data-hero-item>Live voice demo<span aria-hidden="true">|</span>October 2026</p>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="stage" data-stage>
+            <div class="stage__blob stage__blob--a"></div>
+            <div class="stage__blob stage__blob--b"></div>
+            <div class="stage__orb">
+              <span class="stage__ring"></span>
+              <span class="stage__ring"></span>
+              <span class="stage__ring"></span>
+              <span class="stage__core"></span>
+            </div>
+            <div class="stage__convo">
+              <p class="bubble bubble--user" data-bubble-user>Hi, I need to check my Nol card balance.</p>
+              <div class="bubble bubble--agent" data-bubble-agent>
+                <span class="bubble__tag" data-bubble-tag>Nol Card Assistant</span>
+                <span data-bubble-text>Hello! I&rsquo;d be happy to help. Please provide me with your Nol card number.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <h2 class="section-title" data-reveal>Three steps to a live call</h2>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="num" aria-hidden="true">1</span>
+            <div>
+              <h3>Allow your microphone</h3>
+              <p>Use <strong>Chrome, Edge or Safari</strong> on a laptop or phone. Headphones keep the audio clean.</p>
+            </div>
+          </li>
+          <li class="step" data-reveal>
+            <span class="num" aria-hidden="true">2</span>
+            <div>
+              <h3>Press Start call</h3>
+              <p>Pick <strong>one assistant</strong> and speak naturally. You can interrupt, just like on a real call.</p>
+            </div>
+          </li>
+          <li class="step" data-reveal>
+            <span class="num" aria-hidden="true">3</span>
+            <div>
+              <h3>Follow the script, or don&rsquo;t</h3>
+              <p>Each assistant has a <strong>sample call</strong> to follow. Go off-script to see how it handles the unexpected.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Assistants: mirrors the Aistra closing slide -->
+    <section class="assistants" id="assistants">
+      <div class="assistants__blob assistants__blob--a" aria-hidden="true"></div>
+      <div class="assistants__blob assistants__blob--b" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="assistants__head" data-reveal>
+          <p class="label">The assistants</p>
+          <h2>Choose an assistant, then press Start call.</h2>
+          <p>One call at a time. The other assistant waits until your call ends.</p>
+        </header>
+
+        <div class="agents">
+          <!-- Nol Card Assistant (workflow 148) -->
+          <article class="agent spotlight" data-agent="nol" data-reveal>
+            <header class="agent__head">
+              <span class="num" aria-hidden="true">1</span>
+              <div>
+                <h3>Nol Card Assistant</h3>
+                <p>Checks a card&rsquo;s <strong>balance</strong> after verifying the holder, sends a <strong>recharge link</strong>, answers Nol card questions and routes other RTA services.</p>
+              </div>
+            </header>
+            <blockquote class="agent__greeting">&ldquo;Hi, I am Fathima, your RTA AI assistant, how may I help you today?&rdquo;</blockquote>
+
+            <div class="agent__call">
+              <iframe src="call.html?agent=nol" title="Call the Nol Card Assistant" allow="microphone; autoplay" data-frame="nol"></iframe>
+            </div>
+
+            <div class="agent__body">
+              <section class="panel" aria-labelledby="cards-title">
+                <h4 id="cards-title">Test cards</h4>
+                <p class="panel__hint">Say a number in groups, like <strong>567, 391, 8273</strong>. When asked &ldquo;Am I speaking with&hellip;?&rdquo;, say <strong>yes</strong> to hear the balance, or <strong>no</strong> to hear the hand-over to a human agent.</p>
+                <table class="cards">
+                  <thead>
+                    <tr><th scope="col">Card number</th><th scope="col">Holder</th><th scope="col" class="bal">Balance</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="no">567 391 8273</span><button class="copy" type="button" data-copy="5673918273" aria-label="Copy card number 567 391 8273"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></button></td>
+                      <td class="holder"><b>Pulkit</b> <span>Prakash</span></td>
+                      <td class="bal">AED 10</td>
+                    </tr>
+                    <tr>
+                      <td><span class="no">567 483 9109</span><button class="copy" type="button" data-copy="5674839109" aria-label="Copy card number 567 483 9109"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></button></td>
+                      <td class="holder"><b>Twarit</b> <span>Anand</span></td>
+                      <td class="bal">AED 12</td>
+                    </tr>
+                    <tr>
+                      <td><span class="no">567 483 9451</span><button class="copy" type="button" data-copy="5674839451" aria-label="Copy card number 567 483 9451"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></button></td>
+                      <td class="holder"><b>Arpit</b> <span>Nigam</span></td>
+                      <td class="bal">AED 110</td>
+                    </tr>
+                    <tr>
+                      <td><span class="no">567 819 0515</span><button class="copy" type="button" data-copy="5678190515" aria-label="Copy card number 567 819 0515"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></button></td>
+                      <td class="holder"><b>Ambreesh</b> <span>Mahajan</span></td>
+                      <td class="bal">AED 10</td>
+                    </tr>
+                    <tr>
+                      <td><span class="no">567 910 8591</span><button class="copy" type="button" data-copy="5679108591" aria-label="Copy card number 567 910 8591"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></button></td>
+                      <td class="holder"><b>Myron</b> <span>Ferro</span></td>
+                      <td class="bal">AED 95</td>
+                    </tr>
+                    <tr>
+                      <td><span class="no">567 910 8590</span><button class="copy" type="button" data-copy="5679108590" aria-label="Copy card number 567 910 8590"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></button></td>
+                      <td class="holder"><b>Kaashan</b> <span>Panjwani</span></td>
+                      <td class="bal">AED 5</td>
+                    </tr>
+                    <tr>
+                      <td><span class="no">567 910 8589</span><button class="copy" type="button" data-copy="5679108589" aria-label="Copy card number 567 910 8589"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg></button></td>
+                      <td class="holder"><b>Arya</b> <span>Shah</span></td>
+                      <td class="bal">AED 15</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="panel__note">The last three cards differ only in their final digits, so say those slowly.</p>
+              </section>
+
+              <section class="script" aria-labelledby="nol-script">
+                <h4 id="nol-script">Sample call</h4>
+                <ol class="script__list">
+                  <li><div><q>Hi, I need to check my Nol card balance.</q></div></li>
+                  <li><div><span class="cue">Read a card number</span><q>567, 391, 8273</q></div></li>
+                  <li><div><span class="cue">Confirm the name</span><q>Yes, that&rsquo;s me.</q></div></li>
+                  <li><div><q>It&rsquo;s low. I want to recharge it by AED 50.</q></div></li>
+                  <li><div><q>How can I check my transaction history?</q></div></li>
+                  <li><div><q>What happens if I lose my Nol card?</q></div></li>
+                  <li><div><q>No, thank you.</q><span class="cue cue--after">Fathima closes the call</span></div></li>
+                </ol>
+                <p class="also">Also try</p>
+                <ul class="chips">
+                  <li class="chip">What types of Nol cards are there?</li>
+                  <li class="chip">Why hasn&rsquo;t my top-up shown on my card?</li>
+                  <li class="chip">Do children need a Nol card?</li>
+                  <li class="chip chip--end">I need to pay a vehicle fine <span>transfers and ends the call</span></li>
+                </ul>
+              </section>
+            </div>
+          </article>
+
+          <!-- RTA Journey Planner (workflow 147) -->
+          <article class="agent spotlight" data-agent="rta" data-reveal>
+            <header class="agent__head">
+              <span class="num" aria-hidden="true">2</span>
+              <div>
+                <h3>Journey Planner</h3>
+                <p>Plans a <strong>public transport journey</strong>, compares routes, times and fares, and answers follow-up questions about the trip.</p>
+              </div>
+            </header>
+            <blockquote class="agent__greeting">&ldquo;Hi, I am Fatima, your AI assistant from RTA. How may I assist you today?&rdquo;</blockquote>
+
+            <div class="agent__call">
+              <iframe src="call.html?agent=rta" title="Call the Journey Planner" allow="microphone; autoplay" data-frame="rta"></iframe>
+            </div>
+
+            <div class="agent__body">
+              <section class="panel route" aria-labelledby="route-title">
+                <h4 id="route-title">Route in this demo</h4>
+                <div class="route__line">
+                  <div class="route__stop">
+                    <span class="route__dot" aria-hidden="true"></span>
+                    <div><small>From</small><b>Dubai Mall Entrance</b></div>
+                  </div>
+                  <span class="route__track" aria-hidden="true"></span>
+                  <div class="route__stop">
+                    <span class="route__dot route__dot--end" aria-hidden="true"></span>
+                    <div><small>To</small><b>Dubai Marina Walk</b></div>
+                  </div>
+                </div>
+                <ul class="route__options">
+                  <li><b>Option 1</b><span>Red Line Metro</span><em>1 h 1 min</em></li>
+                  <li><b>Option 2</b><span>Bus 81, then bus 8</span><em>1 h 39 min</em></li>
+                  <li><b>Option 3</b><span>Bus 27, then Red Line</span><em>1 h 11 min</em></li>
+                </ul>
+                <p class="panel__note">Every option costs <strong>AED 5</strong>. Ask for any other route to hear how the assistant declines.</p>
+              </section>
+
+              <section class="script" aria-labelledby="rta-script">
+                <h4 id="rta-script">Sample call</h4>
+                <ol class="script__list">
+                  <li><div><q>I want to go from Dubai Mall to Dubai Marina Walk.</q></div></li>
+                  <li><div><span class="cue">After the three options</span><q>Which one is the fastest?</q></div></li>
+                  <li><div><q>Will the metro really take that long?</q></div></li>
+                  <li><div><q>I&rsquo;ll go with option 1.</q></div></li>
+                  <li><div><q>How often does the Red Line run?</q></div></li>
+                  <li><div><q>Is the AED 5 for the metro? How do I pay?</q></div></li>
+                  <li><div><q>No, that&rsquo;s all. Thanks.</q><span class="cue cue--after">Fatima closes the call</span></div></li>
+                </ol>
+                <p class="also">Also try</p>
+                <ul class="chips">
+                  <li class="chip">How do I get to the airport?</li>
+                  <li class="chip">Can I talk to a person?</li>
+                  <li class="chip">Tell me about Salik</li>
+                </ul>
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Good to know -->
+    <section class="notes">
+      <div class="wrap">
+        <h2 class="section-title" data-reveal>Good to know</h2>
+        <div class="notes__grid">
+          <div class="note" data-reveal>
+            <span class="note__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></span>
+            <h3>Calls run in your browser</h3>
+            <p>Allow microphone access when asked. If you blocked it, use the icon in the address bar to allow it again.</p>
+          </div>
+          <div class="note" data-reveal>
+            <span class="note__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span>
+            <h3>Hand-overs are simulated</h3>
+            <p>When an assistant transfers you to a specialist or a human agent, it says so and the call ends.</p>
+          </div>
+          <div class="note" data-reveal>
+            <span class="note__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <h3>Nothing is sent to your phone</h3>
+            <p>The recharge link, journey link and feedback survey are not delivered in this demo, and phone numbers aren&rsquo;t checked on browser calls.</p>
+          </div>
+          <div class="note" data-reveal>
+            <span class="note__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+            <h3>Demo data only</h3>
+            <p>Card details come live from a demo database, not real Nol accounts. Answers come from each assistant&rsquo;s knowledge base.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <img src="assets/img/aistra-logo.png" alt="Aistra, Better with AI" width="1044" height="389" loading="lazy">
+        <p class="footer__tag">Better with AI.</p>
+      </div>
+      <div class="footer__contact">
+        <p class="label">Contact</p>
+        <a href="https://www.aistra.com" target="_blank" rel="noopener">www.aistra.com</a>
+        <a href="mailto:info@aistra.com">info@aistra.com</a>
+      </div>
+    </div>
+    <div class="wrap footer__fine">
+      <p>Built by Aistra for the Roads and Transport Authority, Dubai. Demo environment: responses are AI-generated.</p>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+</body>
+</html>

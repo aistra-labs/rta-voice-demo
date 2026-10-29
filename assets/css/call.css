@@ -1,0 +1,134 @@
+/* Call control rendered inside each assistant card's frame. Transparent so the card shows through. */
+:root {
+  --navy: #0D0B1F;
+  --purple: #6E5BFF;
+  --purple-deep: #4B3DC9;
+  --purple-light: #8B7EFF;
+  --purple-soft: #C8B6FF;
+  --cyan: #00D4E0;
+  --lavender: #EEECFF;
+  --risk: #D64545;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --level: 0;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; background: transparent; overflow: hidden; }
+body { color: #fff; font: 400 16px/1.5 var(--font); -webkit-font-smoothing: antialiased; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+.call { display: flex; align-items: center; gap: 26px; padding: 24px 26px; }
+@media (max-width: 440px) {
+  .call { flex-direction: column; gap: 14px; padding: 24px 16px 22px; text-align: center; }
+}
+
+/* ---------- Orb ---------- */
+.orb {
+  position: relative; flex: none; display: grid; place-items: center;
+  width: 136px; height: 136px; padding: 0; border: 0; border-radius: 50%;
+  background: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.orb:disabled { cursor: default; }
+.orb > span { grid-area: 1 / 1; border-radius: 50%; }
+.orb__core {
+  position: relative; overflow: hidden; display: grid; place-items: center;
+  width: 108px; height: 108px;
+  background: radial-gradient(circle at 34% 28%, #fff 0%, var(--purple-soft) 15%, var(--purple-light) 38%, var(--purple) 64%, #3A2DB0 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .22),
+    0 18px 36px -14px rgba(13, 11, 31, .7),
+    0 0 calc(22px + var(--level) * 70px) rgba(0, 212, 224, calc(.18 + var(--level) * .6));
+  transform: scale(calc(1 + var(--level) * .17));
+  transition: transform .09s linear, box-shadow .2s, filter .3s;
+  animation: breathe 4.6s ease-in-out infinite;
+}
+/* A slow sheen sweeping around the orb */
+.orb__core::before {
+  content: ""; position: absolute; inset: -30%;
+  background: conic-gradient(from 0deg, transparent 0 55%, rgba(255, 255, 255, .28) 70%, transparent 85%);
+  animation: spin 7s linear infinite;
+}
+.orb:hover .orb__core { filter: brightness(1.08); }
+.orb { transition: scale .2s var(--ease-out); }
+.orb:not(:disabled):active { scale: .95; }
+
+.icon { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.orb .icon { position: relative; color: #fff; filter: drop-shadow(0 2px 6px rgba(13, 11, 31, .45)); transition: opacity .25s, scale .35s var(--ease-out); }
+.orb .icon--bars { position: absolute; opacity: 0; scale: .6; }
+[data-state="connected"] .orb .icon--mic { opacity: 0; scale: .6; }
+[data-state="connected"] .orb .icon--bars { opacity: 1; scale: 1; }
+.icon--bars path { animation: eq 1s ease-in-out infinite; transform-origin: 50% 50%; transform-box: fill-box; animation-play-state: paused; }
+.icon--bars path:nth-child(2) { animation-delay: -.2s; }
+.icon--bars path:nth-child(3) { animation-delay: -.4s; }
+.icon--bars path:nth-child(4) { animation-delay: -.6s; }
+.icon--bars path:nth-child(5) { animation-delay: -.8s; }
+.is-speaking .icon--bars path { animation-play-state: running; }
+
+/* Connecting: a cyan arc chases around the orb */
+.orb__arc {
+  width: 132px; height: 132px; border: 3px solid transparent;
+  border-top-color: var(--cyan); border-right-color: rgba(0, 212, 224, .35);
+  opacity: 0; transition: opacity .3s;
+}
+[data-state="connecting"] .orb__arc { opacity: 1; animation: spin .9s linear infinite; }
+
+/* Connected: ripples, faster while the assistant speaks */
+.orb__ripple { width: 108px; height: 108px; border: 2px solid rgba(0, 212, 224, .6); opacity: 0; }
+[data-state="connected"] .orb__ripple { animation: ripple 2.6s var(--ease-out) infinite; }
+[data-state="connected"] .orb__ripple:nth-child(2) { animation-delay: .86s; }
+[data-state="connected"] .orb__ripple:nth-child(3) { animation-delay: 1.72s; }
+.is-speaking .orb__ripple { animation-duration: 1.5s !important; border-color: rgba(0, 212, 224, .85); }
+
+[data-state="locked"] .orb__core,
+[data-state="unavailable"] .orb__core,
+[data-state="loading"] .orb__core { filter: grayscale(.45) brightness(.85); animation: none; }
+[data-state="failed"] .orb__core { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22), 0 0 0 3px rgba(214, 69, 69, .7), 0 18px 36px -14px rgba(13, 11, 31, .7); }
+
+@keyframes breathe { 0%, 100% { scale: 1; } 50% { scale: 1.035; } }
+@keyframes spin { to { rotate: 360deg; } }
+@keyframes ripple { 0% { opacity: .9; scale: 1; } 100% { opacity: 0; scale: 1.55; } }
+@keyframes eq { 0%, 100% { scale: 1 .45; } 50% { scale: 1 1; } }
+
+/* ---------- Status + button ---------- */
+.call__info { flex: 1; min-width: 0; }
+.call__status {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  font-size: 21px; font-weight: 700; line-height: 1.25; letter-spacing: -.015em;
+}
+@media (max-width: 440px) { .call__status { justify-content: center; } }
+.call__timer {
+  display: none; padding: 3px 10px; border-radius: 999px;
+  background: var(--cyan); color: var(--navy);
+  font-size: 13px; font-weight: 700; letter-spacing: .02em; font-variant-numeric: tabular-nums;
+}
+[data-state="connected"] .call__timer, [data-state="ended"] .call__timer { display: inline-block; }
+[data-state="ended"] .call__timer { background: rgba(255, 255, 255, .16); color: #fff; }
+.call__sub { margin-top: 4px; min-height: 1.5em; font-size: 15px; color: var(--lavender); }
+
+.call__btn {
+  margin-top: 16px; display: inline-flex; align-items: center; gap: 9px;
+  height: 46px; padding: 0 22px; border: 0; border-radius: 999px;
+  background: var(--cyan); color: var(--navy);
+  font: 700 15px/1 var(--font); cursor: pointer;
+  box-shadow: 0 12px 26px -14px rgba(0, 212, 224, .95);
+  transition: background .25s, color .25s, box-shadow .25s, opacity .25s;
+}
+.call__btn .icon { width: 18px; height: 18px; stroke-width: 2.2; }
+.call__btn:hover { background: #33E4EE; }
+.call__btn:active { scale: .97; }
+.call__btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+.call__btn:disabled:active { scale: 1; }
+[data-state="connecting"] .call__btn { background: rgba(255, 255, 255, .16); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3); }
+[data-state="connected"] .call__btn { background: var(--risk); color: #fff; box-shadow: 0 12px 26px -14px rgba(214, 69, 69, .95); }
+[data-state="connected"] .call__btn .icon { rotate: 135deg; }
+[data-state="connected"] .call__btn:hover { background: #E25656; }
+
+/* The DeepTalk widget's own panel stays mounted but out of sight; its audio still plays. */
+.dt-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
